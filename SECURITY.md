@@ -10,13 +10,13 @@ Experimental versions will be immediately depracated after a release of a stable
 
 ## Vulnerability discovery and fixing
 
-**Please do not report security vunerabilities on GitHub.**
+**Please do not report security vunerabilities on GitHub on public issues**
 
-Instead, a portal will be created to report security issues in which you can report the issue.
+Instead, report vulnerabilities from the GitHub security panel where by going into advisories, you can report a vulnerability.
 If you want to send a vulnerability anonymously, send an email to our team to report the issue. If possible, encrypt the message with our sensitive information key and send it to us.
 You will receive a response from our team within 24 hours. If for some reason you do not receive a response, please follow-up via email and we will check your reported issue.
 
-If you are sending issues via email, please type it in the following format. Website reported issues will have these fields to fill in.
+If you are sending issues via email, please type it in the following format. GitHub reports will have the following format built-in.
 
 - Type of issue (eg:- downtime, buffer overflow, SQL injection, cross-site scripting)
 - Level of issue (level 1 to level 4, with level 1 being low harm, and level 4 being server shutdown to fix issue.)
