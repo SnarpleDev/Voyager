@@ -10,8 +10,24 @@ Experimental versions will be immediately depracated after a release of a stable
 
 ## Vulnerability discovery and fixing
 
-People who will report vulnerabilities will be named in new patch updates and will be thanked for reporting/fixing the bug.
-It is also appreciated to provide a temporary fix when you post a bug to temporarily patch and push the fix. After that, our developers will fix the bug with a permanent fix and be pushed.
-There are three levels of bugs - level 1 bugs, which are fixed in minor patch updates. level 2 bugs, which are considered major fixes, and level 3 bugs, which need immediate attention and are updated in whole new versions.
+**Please do not report security vunerabilities on GitHub.**
 
-more amends will be made
+Instead, a portal will be created to report security issues in which you can report the issue.
+If you want to send a vulnerability anonymously, send an email to our team to report the issue. If possible, encrypt the message with our sensitive information key and send it to us.
+You will receive a response from our team within 24 hours. If for some reason you do not receive a response, please follow-up via email and we will check your reported issue.
+
+If you are sending issues via email, please type it in the following format. Website reported issues will have these fields to fill in.
+
+- Type of issue (eg:- downtime, buffer overflow, SQL injection, cross-site scripting)
+- Level of issue (level 1 to level 4, with level 1 being low harm, and level 4 being server shutdown to fix issue.)
+- Location of bugged code and full path(s) of source files related to demonstration of issue
+- Special configurations related to issue
+- Step-by-step instructions to replicate the issue
+- Exploit code (if possible)
+- Impact of issue (also explaining how a hacker with malicious intent might use the exploit.)
+
+All of this information will help us to prioritize your issue.
+
+## Preferred Language
+
+It is recommended that you use English to transcribe the issue. However it is not mandatory.
