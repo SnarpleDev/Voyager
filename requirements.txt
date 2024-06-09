@@ -1,3 +1,4 @@
 quart
 requests
 beautifulsoup4
+alive-progress
