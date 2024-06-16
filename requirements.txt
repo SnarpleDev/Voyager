@@ -1,4 +1,7 @@
 quart
-requests
+grequests
 beautifulsoup4
 alive-progress
+surrealdb
+pytz
+python-dotenv
