@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 import pytz
 from surrealdb import Surreal
+import requests
 
 
 def convert_et_to_utc(et_time_str):
@@ -62,3 +63,17 @@ async def relate(db: Surreal, id_1: str, id_2: str, table: str):
     """Runs ``RELATE id_1->table->id_2`` for you. You're welcome."""
 
     return await db.query(f"RELATE {id_1}->{table}->{id_2}")
+
+async def works(CATEGORIES):
+    for category_id, category_info in CATEGORIES.items():
+        if requests.get(f"https://scratch.mit.edu/discuss/{category_id}").ok:
+            category_info["user_accessible"] = True
+            print(
+                f"✅ The forums responded gladly when accessing {category_info['name']}"
+            )
+        else:
+            category_info["user_accessible"] = False
+            print(
+                f"❌ The forums did not respond when accessing {category_info['name']}"
+            )
+    print(str(CATEGORIES))

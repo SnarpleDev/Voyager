@@ -21,7 +21,7 @@ class TopicIndexer:
 
         data = []
 
-        with alive_bar(len(topics), title=f"Indexing category, page {page}") as bar:
+        with alive_bar(len(topics), title=f"Indexing category {category}, page {page}") as bar:
             for topic in topics:
                 link: int = topic.find("a")["href"].split("/")[3]  # get topic id
                 title: str = topic.find("a").text.strip()  # get topic title
@@ -32,7 +32,7 @@ class TopicIndexer:
                     "Sticky:" in topic.get_text()
                     and "Sticky:" not in topic.find("h3").get_text()
                 )
-                is_closed: int = "closed-topic" in topic.get("class", [])
+                is_closed: bool = "closed-topic" in topic.get("class", [])
 
                 to_insert: dict = {
                     "topic_id": int(link),
@@ -49,6 +49,8 @@ class TopicIndexer:
 
                 bar()
 
+        # Unused page length
+        # soup.find_all(attrs={"class": "page"})[len(soup.find_all(attrs={"class": "page"}))-1].get_text()
         return data
 
     async def get_content_from_links(self, topics: list, page: int = 1):
@@ -92,9 +94,9 @@ class TopicIndexer:
                         "div", attrs={"class": "post_body_html"}
                     ).decode_contents()  # content as html
 
-                    post_content_bbcode = r.get(
-                        f"https://scratch.mit.edu/discuss/post/{int(post_link)}/source"
-                    ).content  # content as bbcode
+                    #post_content_bbcode = r.get(
+                        #f"https://scratch.mit.edu/discuss/post/{int(post_link)}/source"
+                    #).content  # content as bbcode
 
                     post_date = convert_et_to_utc(
                         box_head.find("a").get_text()
@@ -105,7 +107,7 @@ class TopicIndexer:
                         "idx": int(post_idx),
                         "author": post_author,
                         "content_html": str(post_content_html),
-                        "content_bbcode": bytes(post_content_bbcode).decode(),
+                        "content_bbcode": str(post_content_html),
                         "date": post_date,
                     }
 
