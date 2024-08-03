@@ -4,7 +4,7 @@ from indexer import TopicIndexer
 from dotenv import load_dotenv
 from os import getenv
 
-CATEGORIES = { # thwank you jeffalo :3
+CATEGORIES = { # thank you jeffalo :3
     1: {"name": "Suggestions", "user_accessible": True},
     2: {"name": "Dustbin", "user_accessible": False},
     3: {"name": "Bugs and Glitches", "user_accessible": True},
@@ -67,7 +67,6 @@ CATEGORIES = { # thwank you jeffalo :3
     },
 }
 
-# This is just temporal, it indexes the first page of Suggestions, and the first page of every topic.
 async def main():
     load_dotenv()
     db = Surreal("ws://127.0.0.1:8000/rpc")
@@ -84,7 +83,5 @@ async def main():
     indexed_posts = [
         await indexer.get_content_from_links(topics) for topics in indexed_categories
     ]
-    print(indexed_posts)
-
 
 asyncio.run(main())
